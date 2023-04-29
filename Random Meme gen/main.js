@@ -4,14 +4,8 @@ const memeAuthor = document.querySelector(".memeAuthor");
 const memeTitle = document.querySelector(".memeTitle");
 const memeImg = document.querySelector(".memeGen img");
 const subredditOptionList = document.querySelectorAll("li");
-console.log(subredditOptionList[1].innerHTML)
-const subreddits = {
-    1 : "wholesomememes",
-    2 : "dankmemes",
-    3 : "me_irl",
-    4 : "memes",
-    5 : "jojomemes",
-}
+const buttonText = document.querySelector(".buttontext");
+
 function updateDetails(url, title, author, subreddit){
     memeImg.setAttribute("src", url);
     memeTitle.innerHTML = title;
@@ -22,14 +16,17 @@ function generateMeme() {
     fetch(apiLink).then(
         (response) => response.json()).then(
             (data) => {
+
                 updateDetails(data.url, data.title, data.author, data.subreddit);
             })
 }
 function editApiLink(params) {
     if (apiLink = "https://meme-api.com/gimme"){
         apiLink = apiLink+"/"+params;
+        buttonText.innerHTML = params;
     }else{
         apiLink = "https://meme-api.com/gimme/"+params;
+        buttonText.innerHTML = params;
     }
     
     console.log(apiLink);
