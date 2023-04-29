@@ -1,13 +1,17 @@
 *{
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    /* overflow: hidden; */
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 body{
+    padding: 0px 30px;
     background: rgb(40,175,176);
     background: linear-gradient(90deg, rgba(40,175,176,1) 0%, rgba(18,78,120,1) 100%);
+}
+ul{
+    list-style: none;
 }
 .memeGen{
     align-items: center;
@@ -18,9 +22,11 @@ body{
     object-fit: cover;
     margin: 5px;
 }
-.generateMemeButton{
-    padding: 10px 15px;
-    margin: 10px;
+.generateMemeButton, .dropdownButton1, .dropdownButton2{
+    padding: 5px 10px;
+    margin: 2px 5px;
+    width: fit-content;
+    /* margin: 10px; */
     border: none;
     border-radius: 6px;
     background-color: rgba(40,175,176,1);
@@ -37,4 +43,39 @@ body{
     color: whitesmoke;
     text-transform: capitalize;
     margin: 5px;
+}
+.controlPanel{
+    padding: 7px 7px;
+    display:inline-flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgba(18,78,120,1);
+    margin: 10px;
+    border-radius: 8px;
+}
+.dropdown1, .dropdown2{
+    display: inline-block;
+    position: relative;
+}
+.dropdown1-content, .dropdown2-content{
+    display: none;
+    color: white;
+    position: absolute;
+    margin: 2px -10px;
+    width: 150px;
+    /* background-color: rgb(40,175,176,1); */
+    background-color: rgba(40,175,176,1);
+    min-width: 100px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.dropdown1-content li, .dropdown2-content li{
+    padding: 6px 10px;
+}
+.dropdown1-content li:hover, .dropdown2-content li:hover{
+    background-color: rgb(33, 143, 143);
+}
+button:hover .dropdown1-content, button:hover .dropdown2-content{
+    display: block;
+    z-index: 1;
 }
